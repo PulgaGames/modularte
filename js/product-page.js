@@ -279,29 +279,62 @@
     }
   }
 
-  function boot() {
-    var slug = getSlugFromPath();
-    var product = window.MODULART_PRODUCTS && window.MODULART_PRODUCTS[slug];
-    var root = document.getElementById('product-root');
+  function showStatus(root, title, message) {
+    if (!root) return;
+    root.innerHTML = '<section class="section"><div class="container"><h1>' + escapeHtml(title) + '</h1><p>' + message + '</p></div></section>';
+  }
 
-    if (!product) {
-      if (root) {
-        root.innerHTML = '<section class="section"><div class="container"><h1>Catálogo</h1><p>Esta categoría no existe o el catálogo se está cargando. <a href="/#productos">Volver a productos</a>.</p></div></section>';
-      }
-      initHeader();
-      if (window.ModulArt && window.ModulArt.hydratePublic) window.ModulArt.hydratePublic();
-      return;
-    }
-
+  function paint(product) {
     renderProduct(product);
     initCatalogLightbox(product.catalog, product.title);
     initHeader();
     if (window.ModulArt && window.ModulArt.hydratePublic) window.ModulArt.hydratePublic();
   }
 
-  var loader = window.ModulArt && window.ModulArt.loadCatalog
-    ? window.ModulArt.loadCatalog()
-    : Promise.resolve();
+  function boot(allowMissing) {
+    var slug = getSlugFromPath();
+    var product = window.MODULART_PRODUCTS && window.MODULART_PRODUCTS[slug];
+    var root = document.getElementById('product-root');
 
-  loader.then(boot).catch(boot);
+    if (product) {
+      paint(product);
+      return true;
+    }
+
+    if (allowMissing) {
+      showStatus(
+        root,
+        'Catálogo',
+        'Esta categoría no existe. <a href="/#productos">Volver a productos</a>.'
+      );
+      initHeader();
+    }
+    return false;
+  }
+
+  var root = document.getElementById('product-root');
+  showStatus(root, 'Catálogo', 'Cargando proyectos…');
+  initHeader();
+
+  function loadAndPaint(attempt) {
+    var loader = window.ModulArt && window.ModulArt.loadCatalog
+      ? window.ModulArt.loadCatalog()
+      : Promise.resolve();
+
+    return loader.then(function () {
+      boot(true);
+    }).catch(function () {
+      if (boot(false)) return;
+      if (!attempt) {
+        showStatus(root, 'Catálogo', 'Cargando proyectos…');
+        setTimeout(function () {
+          loadAndPaint(1);
+        }, 2800);
+        return;
+      }
+      boot(true);
+    });
+  }
+
+  loadAndPaint();
 })();

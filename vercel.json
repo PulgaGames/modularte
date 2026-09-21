@@ -1,12 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": ".",
+  "trailingSlash": true,
   "rewrites": [
     { "source": "/cotización", "destination": "/cotizacion/index.html" },
     { "source": "/cotizacion", "destination": "/cotizacion/index.html" },
     { "source": "/admin", "destination": "/admin/index.html" },
-    { "source": "/productos/:slug", "destination": "/productos/categoria.html" },
-    { "source": "/productos/:slug/", "destination": "/productos/categoria.html" }
+    { "source": "/productos/:slug*", "destination": "/productos/categoria.html" }
   ],
   "headers": [
     {
