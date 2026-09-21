@@ -56,6 +56,7 @@
       .slice(0, 4)
       .map(function (slug) {
         var item = window.MODULART_PRODUCTS[slug];
+        if (!item) return '';
         return '<a href="/productos/' + item.slug + '/" class="product-related__link">' + escapeHtml(item.title) + '</a>';
       }).join('');
 
@@ -268,15 +269,74 @@
     }
   }
 
-  var slug = getSlugFromPath();
-  var product = window.MODULART_PRODUCTS && window.MODULART_PRODUCTS[slug];
+  var API_BASE = 'https://modulart-api.onrender.com/api/v1';
 
-  if (!product) {
-    window.location.replace('/#productos');
-    return;
+  function mapApiCatalog(categories, productsPage) {
+    var products = (productsPage && productsPage.data) || [];
+    var map = {};
+    var order = [];
+
+    categories.forEach(function (cat) {
+      order.push(cat.slug);
+      var catalog = products
+        .filter(function (p) {
+          return p.category && p.category.slug === cat.slug;
+        })
+        .map(function (p) {
+          return {
+            title: p.title,
+            description: p.description,
+            material: p.material,
+            src: p.imageUrl,
+            alt: p.title
+          };
+        });
+
+      map[cat.slug] = {
+        slug: cat.slug,
+        title: cat.title,
+        metaDescription: cat.description,
+        description: cat.description,
+        heroImage: catalog[0] ? catalog[0].src : '',
+        heroAlt: catalog[0] ? catalog[0].alt : cat.title,
+        catalog: catalog
+      };
+    });
+
+    window.MODULART_PRODUCTS = map;
+    window.MODULART_PRODUCT_ORDER = order;
   }
 
-  renderProduct(product);
-  initCatalogLightbox(product.catalog, product.title);
-  initHeader();
+  function loadCatalogFromApi() {
+    return Promise.all([
+      fetch(API_BASE + '/categories').then(function (res) {
+        if (!res.ok) throw new Error('categories ' + res.status);
+        return res.json();
+      }),
+      fetch(API_BASE + '/products?limit=50').then(function (res) {
+        if (!res.ok) throw new Error('products ' + res.status);
+        return res.json();
+      })
+    ]).then(function (results) {
+      mapApiCatalog(results[0], results[1]);
+    }).catch(function () {
+      // Si Render está dormido o falla, se usa js/products-data.js
+    });
+  }
+
+  function boot() {
+    var slug = getSlugFromPath();
+    var product = window.MODULART_PRODUCTS && window.MODULART_PRODUCTS[slug];
+
+    if (!product) {
+      window.location.replace('/#productos');
+      return;
+    }
+
+    renderProduct(product);
+    initCatalogLightbox(product.catalog, product.title);
+    initHeader();
+  }
+
+  loadCatalogFromApi().then(boot);
 })();
