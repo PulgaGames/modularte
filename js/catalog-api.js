@@ -95,14 +95,6 @@
 
     global.MODULART_PRODUCTS = map;
     global.MODULART_PRODUCT_ORDER = order;
-    global.MODULART_LATEST_PRODUCTS = products.map(function (p) {
-      return {
-        title: p.title,
-        src: resolveSrc(p.imageUrl),
-        categorySlug: p.category && p.category.slug,
-        categoryTitle: p.category && p.category.title
-      };
-    });
     return map;
   }
 
@@ -167,30 +159,6 @@
     grid.removeAttribute('aria-busy');
   }
 
-  function fillRecent() {
-    var grid = document.getElementById('recent-projects');
-    if (!grid) return;
-    var items = (global.MODULART_LATEST_PRODUCTS || []).filter(function (p) {
-      return p && p.src && p.categorySlug;
-    }).slice(0, 8);
-    if (!items.length) return;
-
-    grid.hidden = false;
-    var heading = document.getElementById('recent-projects-heading');
-    if (heading) heading.hidden = false;
-
-    grid.innerHTML = items.map(function (p) {
-      return '<a href="/productos/' + encodeURIComponent(p.categorySlug) + '/" class="product-card product-card--photo">'
-        + '<div class="product-card__media">'
-        + '<img src="' + escapeHtml(p.src) + '" alt="' + escapeHtml(p.title) + '" width="640" height="400" loading="lazy" decoding="async">'
-        + '</div>'
-        + '<h3>' + escapeHtml(p.title) + '</h3>'
-        + '<p class="product-card__count">' + escapeHtml(p.categoryTitle || '') + '</p>'
-        + '<span class="product-card__link">Ver proyecto</span>'
-        + '</a>';
-    }).join('');
-  }
-
   function fillFooters() {
     var lists = document.querySelectorAll('[data-footer-products]');
     if (!lists.length) return;
@@ -208,7 +176,6 @@
     if (grid) grid.setAttribute('aria-busy', 'true');
     return loadCatalog().then(function () {
       fillHome();
-      fillRecent();
       fillFooters();
     }).catch(function () {
       if (grid) grid.removeAttribute('aria-busy');
