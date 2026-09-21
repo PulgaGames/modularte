@@ -5,7 +5,13 @@
 
   function getSlugFromPath() {
     var parts = window.location.pathname.split('/').filter(Boolean);
-    return parts[parts.length - 1] || '';
+    var slug = parts[parts.length - 1] || '';
+    if (slug === 'productos' || slug === 'categoria.html') return '';
+    try {
+      return decodeURIComponent(slug);
+    } catch (e) {
+      return slug;
+    }
   }
 
   function escapeHtml(text) {
@@ -40,7 +46,9 @@
     var meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', product.metaDescription);
 
-    var catalogHtml = renderCatalog(product.catalog);
+    var catalogHtml = catalogCount
+      ? renderCatalog(product.catalog)
+      : '<p class="product-catalog__empty">Aún no hay proyectos publicados en esta categoría. Si buscas algo similar, escríbenos por WhatsApp y lo diseñamos a medida.</p>';
     var catalogCount = product.catalog.length;
     var countLabel = catalogCount === 1 ? '1 proyecto' : catalogCount + ' proyectos';
     var catalogCountText = catalogCount
@@ -51,13 +59,15 @@
       ? '<img class="product-hero__img" src="' + product.heroImage + '" alt="' + escapeHtml(product.heroAlt || product.title) + '" width="2400" height="800" sizes="100vw" fetchpriority="high" decoding="async">'
       : '<div class="product-hero__img product-hero__img--empty" aria-hidden="true"></div>';
 
-    var relatedHtml = window.MODULART_PRODUCT_ORDER
-      .filter(function (slug) { return slug !== product.slug; })
+    var relatedHtml = (window.MODULART_PRODUCT_ORDER || [])
+      .filter(function (slug) {
+        var item = window.MODULART_PRODUCTS[slug];
+        return item && slug !== product.slug && item.catalog && item.catalog.length;
+      })
       .slice(0, 4)
       .map(function (slug) {
         var item = window.MODULART_PRODUCTS[slug];
-        if (!item) return '';
-        return '<a href="/productos/' + item.slug + '/" class="product-related__link">' + escapeHtml(item.title) + '</a>';
+        return '<a href="/productos/' + encodeURIComponent(item.slug) + '/" class="product-related__link">' + escapeHtml(item.title) + '</a>';
       }).join('');
 
     var whatsappText = encodeURIComponent('Hola ModulArt, vi su catálogo de ' + product.title.toLowerCase() + ' y me gustaría cotizar un proyecto similar.');
@@ -269,82 +279,29 @@
     }
   }
 
-  var API_BASE = 'https://modulart-api.onrender.com/api/v1';
-  var API_HOST = 'https://modulart-api.onrender.com';
-
-  function resolveSrc(url) {
-    if (!url) return '';
-    if (url.indexOf('http') === 0) return url;
-    if (url.indexOf('/api/') === 0) return API_HOST + url;
-    return url;
-  }
-
-  function mapApiCatalog(categories, productsPage) {
-    var products = (productsPage && productsPage.data) || [];
-    var map = {};
-    var order = [];
-
-    categories.forEach(function (cat) {
-      order.push(cat.slug);
-      var catalog = products
-        .filter(function (p) {
-          return p.category && p.category.slug === cat.slug;
-        })
-        .map(function (p) {
-          return {
-            title: p.title,
-            description: p.description,
-            material: p.material,
-            src: resolveSrc(p.imageUrl),
-            alt: p.title
-          };
-        });
-
-      map[cat.slug] = {
-        slug: cat.slug,
-        title: cat.title,
-        metaDescription: cat.description,
-        description: cat.description,
-        heroImage: catalog[0] ? catalog[0].src : '',
-        heroAlt: catalog[0] ? catalog[0].alt : cat.title,
-        catalog: catalog
-      };
-    });
-
-    window.MODULART_PRODUCTS = map;
-    window.MODULART_PRODUCT_ORDER = order;
-  }
-
-  function loadCatalogFromApi() {
-    return Promise.all([
-      fetch(API_BASE + '/categories').then(function (res) {
-        if (!res.ok) throw new Error('categories ' + res.status);
-        return res.json();
-      }),
-      fetch(API_BASE + '/products?limit=50').then(function (res) {
-        if (!res.ok) throw new Error('products ' + res.status);
-        return res.json();
-      })
-    ]).then(function (results) {
-      mapApiCatalog(results[0], results[1]);
-    }).catch(function () {
-      // Si Render está dormido o falla, se usa js/products-data.js
-    });
-  }
-
   function boot() {
     var slug = getSlugFromPath();
     var product = window.MODULART_PRODUCTS && window.MODULART_PRODUCTS[slug];
+    var root = document.getElementById('product-root');
 
     if (!product) {
-      window.location.replace('/#productos');
+      if (root) {
+        root.innerHTML = '<section class="section"><div class="container"><h1>Catálogo</h1><p>Esta categoría no existe o el catálogo se está cargando. <a href="/#productos">Volver a productos</a>.</p></div></section>';
+      }
+      initHeader();
+      if (window.ModulArt && window.ModulArt.hydratePublic) window.ModulArt.hydratePublic();
       return;
     }
 
     renderProduct(product);
     initCatalogLightbox(product.catalog, product.title);
     initHeader();
+    if (window.ModulArt && window.ModulArt.hydratePublic) window.ModulArt.hydratePublic();
   }
 
-  loadCatalogFromApi().then(boot);
+  var loader = window.ModulArt && window.ModulArt.loadCatalog
+    ? window.ModulArt.loadCatalog()
+    : Promise.resolve();
+
+  loader.then(boot).catch(boot);
 })();
