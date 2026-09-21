@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="ModulArt — Ebanistería y diseño en madera en Ciudad de Panamá. Cocinas, closets, muebles a medida. Servicio en toda la ciudad y alrededores.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="ModulArt | Diseño en Madera — Panamá">
+  <meta property="og:description" content="Ebanistería de alta calidad en Panamá. Diseño, fabricación e instalación de muebles en madera.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_PA">
+  <meta property="og:url" content="https://modulart-yeqc.vercel.app/">
+  <meta property="og:image" content="https://modulart-yeqc.vercel.app/public/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ModulArt — Diseño en Madera, ebanistería en Panamá">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ModulArt | Diseño en Madera — Panamá">
+  <meta name="twitter:description" content="Ebanistería de alta calidad en Panamá. Diseño, fabricación e instalación de muebles en madera.">
+  <meta name="twitter:image" content="https://modulart-yeqc.vercel.app/public/images/og-image.png">
+  <title>ModulArt | Diseño en Madera — Ebanistería en Panamá</title>
+  <link rel="icon" href="/public/images/logo.png" type="image/png">
+  <link rel="preload" as="image" href="/public/images/hero/slide-1.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ModulArt",
+    "description": "Ebanistería y diseño en madera en Ciudad de Panamá",
+    "url": "https://modulart.pa",
+    "image": "/public/images/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ciudad de Panamá",
+      "addressCountry": "PA"
+    },
+    "areaServed": "Ciudad de Panamá y alrededores",
+    "priceRange": "$$"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="header__logo" aria-label="ModulArt inicio">
+        <img src="/public/images/logo.png" alt="ModulArt — Diseño en Madera" width="140" height="140" decoding="async">
+        <span class="logo-signature">Luis Alexander Pirazan</span>
+      </a>
+      <button class="header__toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header__nav" id="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="#empresa">Empresa</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="/cotizacion">Cotización</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
+  <main id="contenido">
+    <!-- Hero Slider -->
+    <section class="hero" aria-label="Galería principal">
+      <div class="hero__slider" id="hero-slider">
+        <div class="hero__slide hero__slide--active">
+          <img
+            src="/public/images/hero/slide-1.jpg"
+            alt="Sala moderna con panel de madera y aparador curvo"
+            width="2400" height="1350"
+            fetchpriority="high"
+            decoding="async"
+            sizes="100vw">
+        </div>
+        <div class="hero__slide">
+          <img
+            src="/public/images/hero/slide-2.jpg"
+            alt="Sala moderna con estantería de madera e iluminación LED"
+            width="2400" height="1350"
+            loading="lazy"
+            decoding="async"
+            sizes="100vw">
+        </div>
+        <div class="hero__slide">
+          <img
+            src="/public/images/hero/slide-3.jpg"
+            alt="Sala y cocina integradas con techo en listones de madera"
+            width="2400" height="1350"
+            loading="lazy"
+            decoding="async"
+            sizes="100vw">
+        </div>
+        <div class="hero__slide">
+          <img
+            src="/public/images/hero/slide-4.jpg"
+            alt="Sala minimalista con panel de madera y mueble TV flotante"
+            width="2400" height="1350"
+            loading="lazy"
+            decoding="async"
+            sizes="100vw">
+        </div>
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="hero__controls" aria-label="Controles del carrusel">
+        <button class="hero__arrow hero__arrow--prev" id="hero-prev" aria-label="Anterior">&#8249;</button>
+        <div class="hero__dots" id="hero-dots" role="tablist"></div>
+        <button class="hero__arrow hero__arrow--next" id="hero-next" aria-label="Siguiente">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- Empresa -->
+    <section class="section" id="empresa">
+      <div class="container">
+        <div class="section__grid section__grid--empresa">
+          <div class="section__media">
+            <img
+              src="/public/images/empresa/ebanisteria-taller.jpg?v=3"
+              alt="Ebanistería artesanal en taller ModulArt"
+              width="1200" height="800"
+              loading="lazy"
+              decoding="async">
+          </div>
+          <div class="section__text">
+            <h2>Empresa</h2>
+            <div class="section__divider"></div>
+            <p>ModulArt es una ebanistería panameña especializada en diseño y fabricación de muebles en madera para hogar y oficina. Combinamos artesanía tradicional con diseño modular contemporáneo.</p>
+            <p>Fabricamos cada pieza según las necesidades de nuestros clientes, utilizando materiales de primera calidad y procesos que respetan el medio ambiente.</p>
+            <p>Desde cocinas integrales hasta closets y mobiliario corporativo, ofrecemos soluciones personalizadas con acabados de alto nivel en toda Ciudad de Panamá y zona metropolitana.</p>
+            <a href="#contacto" class="btn btn--primary">Conócenos más</a>
+          </div>
+        </div>
+        <div class="section__secondary-img">
+          <img
+            src="/public/images/empresa/ebanisteria-artesanos.jpg?v=3"
+            alt="Artesanos trabajando madera a mano en ModulArt"
+            width="1400" height="660"
+            loading="lazy"
+            decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- Productos -->
+    <section class="section section--dark" id="productos">
+      <div class="container">
+        <h2 class="section__title-center">Productos</h2>
+        <div class="section__divider section__divider--center"></div>
+        <div class="products-grid">
+          <a href="/productos/closets/" class="product-card">
+            <div class="product-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="12" width="48" height="44" rx="1"/><line x1="8" y1="28" x2="56" y2="28"/><line x1="32" y1="28" x2="32" y2="56"/></svg>
+            </div>
+            <h3>Closets</h3>
+            <span class="product-card__link">Ver catálogo</span>
+          </a>
+          <a href="/productos/puertas/" class="product-card">
+            <div class="product-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="14" y="8" width="36" height="48" rx="1"/><circle cx="42" cy="32" r="2"/></svg>
+            </div>
+            <h3>Puertas</h3>
+            <span class="product-card__link">Ver catálogo</span>
+          </a>
+          <a href="/productos/cocinas-integrales/" class="product-card">
+            <div class="product-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="20" width="52" height="32" rx="1"/><rect x="10" y="8" width="20" height="16"/><line x1="6" y1="36" x2="58" y2="36"/></svg>
+            </div>
+            <h3>Cocinas integrales</h3>
+            <span class="product-card__link">Ver catálogo</span>
+          </a>
+          <a href="/productos/comedores/" class="product-card">
+            <div class="product-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="30" width="44" height="8"/><rect x="14" y="38" width="4" height="18"/><rect x="46" y="38" width="4" height="18"/></svg>
+            </div>
+            <h3>Comedores</h3>
+            <span class="product-card__link">Ver catálogo</span>
+          </a>
+          <a href="/productos/salas/" class="product-card">
+            <div class="product-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="28" width="20" height="24" rx="2"/><rect x="36" y="28" width="20" height="24" rx="2"/><rect x="22" y="36" width="20" height="16" rx="1"/></svg>
+            </div>
+            <h3>Salas</h3>
+            <span class="product-card__link">Ver catálogo</span>
+          </a>
+          <a href="/productos/alcobas/" class="product-card">
+            <div class="product-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="16" width="48" height="36" rx="1"/><rect x="8" y="8" width="48" height="12"/><line x1="8" y1="40" x2="56" y2="40"/></svg>
+            </div>
+            <h3>Alcobas</h3>
+            <span class="product-card__link">Ver catálogo</span>
+          </a>
+          <a href="/productos/banos/" class="product-card">
+            <div class="product-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><rect x="12" y="8" width="40" height="48" rx="1"/><ellipse cx="32" cy="28" rx="10" ry="8"/><line x1="20" y1="48" x2="44" y2="48"/></svg>
+            </div>
+            <h3>Baños</h3>
+            <span class="product-card__link">Ver catálogo</span>
+          </a>
+          <a href="/productos/pisos-escalas-pasamanos/" class="product-card">
+            <div class="product-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 52 L32 20 L56 52"/><line x1="16" y1="44" x2="48" y2="44"/><line x1="24" y1="36" x2="40" y2="36"/></svg>
+            </div>
+            <h3>Pisos, escalas y pasamanos</h3>
+            <span class="product-card__link">Ver catálogo</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="section" id="servicios">
+      <div class="container">
+        <h2 class="section__title-center">Servicios</h2>
+        <div class="section__divider section__divider--center"></div>
+        <p class="section__intro">En ModulArt diseñamos, fabricamos e instalamos muebles en madera con materiales de calidad y procesos responsables con el medio ambiente. Atendemos proyectos residenciales y comerciales en toda Ciudad de Panamá.</p>
+
+        <div class="service-block">
+          <div class="service-block__img">
+            <img src="/public/images/servicios/diseno.jpg" alt="Diseño de mobiliario en madera a medida" width="1400" height="788" loading="lazy" decoding="async">
+          </div>
+          <div class="service-block__content">
+            <div class="service-block__icon" aria-hidden="true">
+              <svg viewBox="0 0 72 98" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 90 L36 8 L64 90"/><line x1="20" y1="60" x2="52" y2="60"/></svg>
+            </div>
+            <h2>Diseño</h2>
+            <p>Diseñamos cada proyecto pensando en tus necesidades y estilo de vida. Nuestro equipo traduce tus ideas en planos funcionales y estéticos que superan expectativas.</p>
+            <a href="#contacto" class="btn btn--outline">¡Contáctanos ahora!</a>
+          </div>
+        </div>
+
+        <div class="service-block service-block--reverse">
+          <div class="service-block__img">
+            <img src="/public/images/servicios/fabricacion.jpg?v=3" alt="Fabricación artesanal con cepillo de mano en taller ModulArt" width="1400" height="788" loading="lazy" decoding="async">
+          </div>
+          <div class="service-block__content">
+            <div class="service-block__icon" aria-hidden="true">
+              <svg viewBox="0 0 101 101" fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="40" width="80" height="50" rx="2"/><path d="M30 40 L30 20 L70 20 L70 40"/><line x1="10" y1="60" x2="90" y2="60"/></svg>
+            </div>
+            <h2>Fabricación</h2>
+            <p>Fabricamos con precisión milimétrica en nuestro taller, optimizando materiales y aplicando acabados premium que garantizan durabilidad y belleza en cada pieza.</p>
+            <a href="#contacto" class="btn btn--outline">¡Contáctanos ahora!</a>
+          </div>
+        </div>
+
+        <div class="service-block">
+          <div class="service-block__img">
+            <img src="/public/images/closets/closet-moderno-gris-corredizo.jpg" alt="Closet moderno en melamina gris con puertas corredizas" width="1400" height="788" loading="lazy" decoding="async">
+          </div>
+          <div class="service-block__content">
+            <div class="service-block__icon" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 70 Q50 20 80 70"/><line x1="30" y1="55" x2="70" y2="55"/></svg>
+            </div>
+            <h2>Restauración</h2>
+            <p>Devolvemos la vida a tus muebles con técnicas profesionales de restauración. Conservamos el carácter original mientras renovamos su funcionalidad y apariencia.</p>
+            <a href="#contacto" class="btn btn--outline">¡Contáctanos ahora!</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section section--contact" id="contacto">
+      <div class="contact-grid">
+        <div class="contact-map">
+          <div class="contact-map__frame">
+            <iframe
+              title="Ubicación ModulArt en Ciudad de Panamá"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112037.31598865428!2d-79.597095!3d8.982379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca9a284c672c3%3A0x6f176da952ed1bc7!2sCiudad%20de%20Panam%C3%A1!5e0!3m2!1ses!2spa!4v1718120000000!5m2!1ses!2spa"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="contact-info-box">
+            <p><a href="mailto:info@modulart.pa">info@modulart.pa</a></p>
+            <p><a href="https://wa.me/50760000000">(+507) 6000-0000</a></p>
+            <p><a href="https://maps.google.com/?q=Ciudad+de+Panama" target="_blank" rel="noopener noreferrer">Ciudad de Panamá — Servicio en toda la capital y alrededores</a></p>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <h2>Contacto</h2>
+          <div class="section__divider"></div>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellido*" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder="Correo electrónico*" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <input type="tel" id="telefono" name="telefono" placeholder="Teléfono*" required autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <textarea id="mensaje" name="mensaje" placeholder="Mensaje*" rows="4" required></textarea>
+            </div>
+            <div class="form-group form-group--checkbox">
+              <label>
+                <input type="checkbox" name="privacidad" required>
+                <span>Acepto el tratamiento de datos personales.</span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Enviar por WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="/public/images/logo.png" alt="ModulArt" width="180" height="180" loading="lazy" decoding="async">
+        <span class="logo-signature">Luis Alexander Pirazan</span>
+        <p class="footer__tagline">Diseño en Madera</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#empresa">Empresa</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="/cotizacion">Cotización</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="/productos/closets/">Closets</a></li>
+          <li><a href="/productos/cocinas-integrales/">Cocinas integrales</a></li>
+          <li><a href="/productos/puertas/">Puertas</a></li>
+          <li><a href="/productos/comedores/">Comedores</a></li>
+          <li><a href="/productos/salas/">Salas</a></li>
+          <li><a href="/productos/alcobas/">Alcobas</a></li>
+          <li><a href="/productos/banos/">Baños</a></li>
+          <li><a href="/productos/pisos-escalas-pasamanos/">Pisos, escalas y pasamanos</a></li>
+        </ul>
+      </div>
+      <div class="footer__social">
+        <a href="https://wa.me/50760000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="https://instagram.com/modulart.pa" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>Copyright © 2026 ModulArt Ebanistería. Ciudad de Panamá, Panamá.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/50760000000" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

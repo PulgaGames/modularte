@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Cotización | ModulArt</title>
+  <link rel="icon" href="/public/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/cotizacion.css">
+</head>
+<body class="cot-page">
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+
+  <header class="header header--solid" id="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo" aria-label="ModulArt inicio">
+        <img src="/public/images/logo.png" alt="ModulArt — Diseño en Madera" width="140" height="140" decoding="async">
+        <span class="logo-signature">Luis Alexander Pirazan</span>
+      </a>
+      <button class="header__toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header__nav" id="main-nav" aria-label="Navegación principal">
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/#empresa">Empresa</a></li>
+      <li><a href="/#productos">Productos</a></li>
+      <li><a href="/#servicios">Servicios</a></li>
+      <li><a href="/cotizacion" class="is-active" aria-current="page">Cotización</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+    </div>
+  </header>
+
+  <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
+  <main id="contenido" class="cot-main">
+    <div class="cot-hero">
+      <div class="container">
+        <p class="cot-hero__tagline">Diseño en Madera</p>
+        <h1>Nueva <span>Cotización</span></h1>
+        <p class="cot-hero__date" id="fecha-display" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div class="container cot-form-wrap">
+      <form id="cotizacion-form" novalidate>
+        <section class="cot-section">
+          <label class="cot-label" for="proyecto">Proyecto / Cliente <span class="cot-optional">(opcional)</span></label>
+          <input type="text" id="proyecto" class="cot-input" placeholder="Ej. FITNESS GAME ( WESTLAND MALL )" autocomplete="organization">
+        </section>
+
+        <section class="cot-section">
+          <div class="cot-section__head">
+            <h2>Productos</h2>
+            <div class="section__divider"></div>
+            <span class="cot-hint">Agrega uno o más ítems a la cotización</span>
+          </div>
+
+          <div id="items-container" class="items-container"></div>
+
+          <button type="button" class="btn btn--outline cot-btn-add" id="add-item">
+            + Agregar Otro Producto
+          </button>
+        </section>
+
+        <section class="cot-section cot-totals">
+          <h2>Resumen</h2>
+          <div class="section__divider"></div>
+          <div class="cot-totals__row">
+            <span>Sub Total</span>
+            <input type="text" id="subtotal" class="cot-input cot-input--readonly" readonly tabindex="-1" aria-readonly="true">
+          </div>
+          <div class="cot-totals__row">
+            <span>ITBMS (7%)</span>
+            <input type="text" id="itbms" class="cot-input cot-input--readonly" readonly tabindex="-1" aria-readonly="true">
+          </div>
+          <div class="cot-totals__row cot-totals__row--total">
+            <span>Total</span>
+            <input type="text" id="total" class="cot-input cot-input--readonly" readonly tabindex="-1" aria-readonly="true">
+          </div>
+        </section>
+
+        <button type="button" class="btn btn--primary btn--download" id="download-pdf">
+          Descargar Cotización
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="cot-footer">
+    <div class="container">
+      <p>ModulArt — Ebanistería en Ciudad de Panamá</p>
+    </div>
+  </footer>
+
+  <template id="item-template">
+    <article class="cot-item" data-item>
+      <div class="cot-item__head">
+        <span class="cot-item__num"># <strong data-num>1</strong></span>
+        <button type="button" class="cot-item__remove" data-remove aria-label="Eliminar producto" hidden>✕</button>
+      </div>
+      <div class="cot-item__grid">
+        <div class="cot-field cot-field--sm">
+          <label>Cantidad</label>
+          <input type="number" data-cantidad min="1" step="1" value="1" inputmode="numeric" required>
+        </div>
+        <div class="cot-field cot-field--grow">
+          <label>Descripción</label>
+          <textarea data-descripcion rows="2" placeholder="Descripción del producto" required></textarea>
+        </div>
+        <div class="cot-field">
+          <label>Valor Unitario</label>
+          <input type="text" data-unitario inputmode="decimal" placeholder="0,00" autocomplete="off" required>
+        </div>
+        <div class="cot-field">
+          <label>Valor Total</label>
+          <input type="text" data-total class="cot-input--readonly" readonly tabindex="-1" value="0,00">
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js" defer></script>
+  <script src="/js/cotizacion.js" defer></script>
+</body>
+</html>

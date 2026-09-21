@@ -1,0 +1,310 @@
+/* Cotización — estilos alineados con landing ModulArt */
+
+.cot-page {
+  background: var(--bg-section);
+}
+
+.header__nav a.is-active {
+  color: var(--accent);
+}
+
+.cot-main {
+  padding-top: var(--header-h);
+  min-height: 100dvh;
+}
+
+.cot-hero {
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-card) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 2.5rem 0 2rem;
+  text-align: center;
+}
+
+.cot-hero__tagline {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--silver);
+  margin-bottom: 0.5rem;
+}
+
+.cot-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.cot-hero h1 span {
+  color: var(--accent);
+}
+
+.cot-hero__date {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.cot-form-wrap {
+  padding: 2rem 0 3rem;
+}
+
+.cot-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.cot-section h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 400;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.cot-section .section__divider {
+  margin-bottom: 0.75rem;
+}
+
+.cot-section__head {
+  margin-bottom: 1.25rem;
+}
+
+.cot-hint {
+  display: block;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.cot-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--silver);
+}
+
+.cot-optional {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.cot-input,
+.cot-field input,
+.cot-field textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 0;
+  font: inherit;
+  font-size: 16px;
+  background: transparent;
+  color: var(--text);
+  transition: border-color var(--transition);
+}
+
+.cot-input::placeholder,
+.cot-field input::placeholder,
+.cot-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.cot-input:focus,
+.cot-field input:focus,
+.cot-field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+.cot-input--readonly,
+.cot-field input[readonly] {
+  color: var(--silver);
+  cursor: default;
+}
+
+.cot-field textarea {
+  resize: vertical;
+  min-height: 64px;
+}
+
+.cot-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+  color: var(--text-muted);
+}
+
+.items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.cot-item {
+  border: 1px solid var(--border);
+  padding: 1.15rem;
+  background: var(--bg-section);
+  transition: border-color var(--transition);
+}
+
+.cot-item:hover {
+  border-color: rgba(184, 115, 51, 0.4);
+}
+
+.cot-item__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.cot-item__num {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.cot-item__num strong {
+  color: var(--accent);
+  font-size: 18px;
+  font-family: var(--font-heading);
+}
+
+.cot-item__remove {
+  background: transparent;
+  border: 1px solid var(--border);
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 14px;
+  transition: all var(--transition);
+}
+
+.cot-item__remove:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg-dark);
+}
+
+.cot-item__grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .cot-item__grid {
+    grid-template-columns: 100px 1fr 150px 150px;
+    align-items: start;
+  }
+
+  .cot-field--sm { grid-column: 1; }
+  .cot-field--grow { grid-column: 2 / -1; }
+}
+
+@media (min-width: 768px) {
+  .cot-item__grid {
+    grid-template-columns: 90px 1fr 160px 160px;
+  }
+
+  .cot-field--grow { grid-column: 2; }
+}
+
+.cot-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cot-totals__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0;
+}
+
+.cot-totals__row span {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--silver);
+}
+
+.cot-totals__row input {
+  max-width: 220px;
+  text-align: right;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.cot-totals__row--total {
+  margin-top: 0.5rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+.cot-totals__row--total span,
+.cot-totals__row--total input {
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.cot-btn-add {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.btn--download {
+  width: 100%;
+  min-height: 54px;
+  font-size: 17px;
+  margin-top: 0.5rem;
+}
+
+.cot-footer {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 0;
+  text-align: center;
+}
+
+.cot-footer p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.cot-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  padding: 0.85rem 1.5rem;
+  font-size: 14px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  max-width: calc(100% - 2rem);
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.cot-toast--visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+.cot-toast--error {
+  border-color: #cf2e2e;
+  color: #ffb4b4;
+}
