@@ -503,6 +503,30 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
+.recent-projects {
+  margin-top: 3.5rem;
+  text-align: center;
+}
+
+.recent-projects__kicker {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.recent-projects__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--text);
+  font-weight: 400;
+}
+
+#recent-projects {
+  margin-top: 1.5rem;
+}
+
 .product-card__icon {
   width: 100px;
   height: 95px;

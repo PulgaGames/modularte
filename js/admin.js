@@ -45,7 +45,7 @@
     if (!(opts.body instanceof FormData) && !headers['Content-Type']) {
       headers['Content-Type'] = 'application/json';
     }
-    return fetch(API + path, Object.assign({}, opts, { headers: headers })).then(function (res) {
+    return fetch(API + path, Object.assign({ cache: 'no-store' }, opts, { headers: headers })).then(function (res) {
       if (res.status === 401) {
         logout(true);
         return Promise.reject(new Error('Sesión vencida. Entra de nuevo.'));

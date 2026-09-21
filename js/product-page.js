@@ -46,10 +46,10 @@
     var meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', product.metaDescription);
 
+    var catalogCount = product.catalog.length;
     var catalogHtml = catalogCount
       ? renderCatalog(product.catalog)
       : '<p class="product-catalog__empty">Aún no hay proyectos publicados en esta categoría. Si buscas algo similar, escríbenos por WhatsApp y lo diseñamos a medida.</p>';
-    var catalogCount = product.catalog.length;
     var countLabel = catalogCount === 1 ? '1 proyecto' : catalogCount + ' proyectos';
     var catalogCountText = catalogCount
       ? countLabel + ' · Haz clic en cualquier imagen para ver en detalle'
