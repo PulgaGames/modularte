@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Administración | ModulArt</title>
+  <link rel="icon" href="/public/images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin-body">
+  <section id="login-view" class="admin-login">
+    <form id="login-form" class="admin-login__card">
+      <img src="/public/images/logo.png" alt="ModulArt" width="72" height="72" />
+      <h1>Panel de administración</h1>
+      <p>Gestiona categorías, productos e imágenes del catálogo.</p>
+      <label>
+        Usuario
+        <input id="login-user" type="text" autocomplete="username" value="admin" required />
+      </label>
+      <label>
+        Contraseña
+        <input id="login-pass" type="password" autocomplete="current-password" value="admin" required />
+      </label>
+      <p id="login-error" class="admin-error" hidden></p>
+      <button type="submit" class="btn btn--primary">Entrar</button>
+    </form>
+  </section>
+
+  <div id="app-view" class="admin-shell" hidden>
+    <aside class="admin-side">
+      <a href="/" class="admin-side__brand">
+        <img src="/public/images/logo.png" alt="" width="40" height="40" />
+        ModulArt
+      </a>
+      <nav>
+        <button type="button" class="admin-nav is-active" data-view="products">Productos</button>
+        <button type="button" class="admin-nav" data-view="categories">Categorías</button>
+        <button type="button" class="admin-nav" data-view="quotes">Cotizaciones</button>
+      </nav>
+      <button type="button" id="logout-btn" class="admin-side__out">Cerrar sesión</button>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-top">
+        <div>
+          <h2 id="view-title">Productos</h2>
+          <p id="view-sub">Crea, edita y elimina piezas del catálogo. Sube fotos nuevas.</p>
+        </div>
+        <button type="button" id="primary-action" class="btn btn--primary">Nuevo producto</button>
+      </header>
+      <p id="app-error" class="admin-error" hidden></p>
+      <section id="view-products"></section>
+      <section id="view-categories" hidden></section>
+      <section id="view-quotes" hidden></section>
+    </main>
+  </div>
+
+  <div id="modal" class="admin-modal" hidden>
+    <div class="admin-modal__backdrop" data-close-modal></div>
+    <div class="admin-modal__box" role="dialog" aria-modal="true">
+      <div class="admin-modal__head">
+        <h3 id="modal-title">Nuevo</h3>
+        <button type="button" class="admin-modal__x" data-close-modal aria-label="Cerrar">&times;</button>
+      </div>
+      <form id="modal-form" class="admin-form"></form>
+    </div>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

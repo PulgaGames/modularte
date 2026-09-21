@@ -270,6 +270,14 @@
   }
 
   var API_BASE = 'https://modulart-api.onrender.com/api/v1';
+  var API_HOST = 'https://modulart-api.onrender.com';
+
+  function resolveSrc(url) {
+    if (!url) return '';
+    if (url.indexOf('http') === 0) return url;
+    if (url.indexOf('/api/') === 0) return API_HOST + url;
+    return url;
+  }
 
   function mapApiCatalog(categories, productsPage) {
     var products = (productsPage && productsPage.data) || [];
@@ -287,7 +295,7 @@
             title: p.title,
             description: p.description,
             material: p.material,
-            src: p.imageUrl,
+            src: resolveSrc(p.imageUrl),
             alt: p.title
           };
         });
