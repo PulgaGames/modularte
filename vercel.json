@@ -1,4 +1,6 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": ".",
   "rewrites": [
     { "source": "/cotización", "destination": "/cotizacion/index.html" },
     { "source": "/cotizacion", "destination": "/cotizacion/index.html" }
